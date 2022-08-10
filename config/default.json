@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb+srv://cluster:cluster1@cluster-keeper.efsgvlb.mongodb.net/?retryWrites=true&w=majority",
+    "jwtSecret":"secret1"
+}
