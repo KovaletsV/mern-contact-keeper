@@ -2,24 +2,28 @@ import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import AuthContext from "../../context/auth/AuthContext";
+import ContactContext from "../../context/contact/ContactContext";
 
 const Navbar = ({ title, icon }) => {
     const authContext = useContext(AuthContext);
+    const contactContext = useContext(ContactContext);
 
     const { isAuthenticated, logout, user } = authContext;
+    const { clearContext } = contactContext;
 
     const onLogoout = () => {
         logout();
+        clearContext();
     };
 
     const authLinks = (
         <>
             <li>Hello {user && user.name}</li>
             <li>
-                <a onClick={onLogoout} href="#!">
+                <Link onClick={onLogoout} to="/login">
                     <i className="fas fa-sign-out-alt"></i>
                     <span className="hide-sm">Logout</span>
-                </a>
+                </Link>
             </li>
         </>
     );

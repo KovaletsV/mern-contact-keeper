@@ -11,16 +11,12 @@ const Login = () => {
     const { login, error, clearErrors, isAuthenticated } = authContext;
 
     useEffect(() => {
-        if (isAuthenticated) {
-            return <Navigate to="/" />;
-        }
-
         if (error === "Invalid Credentials") {
             setAlert(error, "danger");
             clearErrors();
         }
         // eslint-disable-next-line
-    }, [error, isAuthenticated]);
+    }, [error]);
 
     const [user, setUser] = useState({
         email: "",
@@ -44,6 +40,10 @@ const Login = () => {
             });
         }
     };
+
+    if (isAuthenticated) {
+        <Navigate to="/" />;
+    }
     return (
         <div className="form-container">
             <h1>

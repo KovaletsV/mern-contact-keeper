@@ -13,7 +13,7 @@ const Register = () => {
 
     useEffect(() => {
         if (isAuthenticated) {
-            return <Navigate to="/" />;
+            <Navigate to="/" />;
         }
 
         if (error === "User already exist") {

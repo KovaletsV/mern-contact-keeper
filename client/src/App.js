@@ -9,6 +9,7 @@ import AuthState from "./context/auth/AuthState";
 import AlertState from "./context/alert/AlertState";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
+// import PrivateRoute from "./components/routing/privateRoute";
 import setAuthToken from "./utils/setAuthToken";
 
 if (localStorage.token) {

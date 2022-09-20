@@ -10,7 +10,7 @@ import {
     AUTH_ERROR,
     LOGIN_SUCCESS,
     LOGIN_FAIL,
-    // LOGOUT,
+    LOGOUT,
     CLEAR_ERRORS
 } from "../types";
 
@@ -58,13 +58,8 @@ const AuthState = props => {
     };
     // login user
     const login = async formData => {
-        const config = {
-            headers: {
-                "Content-Type": "application/json"
-            }
-        };
         try {
-            const res = await axios.post("/api/auth", formData, config);
+            const res = await axios.post("/api/auth", formData);
             console.log(res);
             dispatch({ type: LOGIN_SUCCESS, payload: res.data });
         } catch (err) {
@@ -78,7 +73,7 @@ const AuthState = props => {
 
     // logout
     const logout = () => {
-        console.log("out");
+        dispatch({ type: LOGOUT });
     };
     // clear errors
     const clearErrors = () => dispatch({ type: CLEAR_ERRORS });
